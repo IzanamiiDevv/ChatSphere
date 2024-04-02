@@ -4,7 +4,7 @@ Certainly! Below is a template for a README file tailored to your project using 
 
 # ChatSphere
 
-ChatSphere is a real-time chat web application built using Firebase, Vite, React, and TypeScript. It allows users to engage in conversations with each other in real-time.
+ChatSphere is a real-time chat web application built using MySQL, Express, Vite, React, and TypeScript. It allows users to engage in conversations with each other in real-time.
 
 ## Features
 
