@@ -1,35 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import Register from "./Component/Register";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [isRegistered, setRegistered] = useState(false);
+  const [name, setName] = useState("user");
+  const [ChatRoom, setChatRoom] = useState<JSX.Element | null>(null);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  useEffect(() => {
+    (async function() {
+      try {
+        const Chat = await import('./Component/ChatRoom');
+        setChatRoom(<Chat.default />);
+      } catch (error) {
+        console.error("Error loading ChatRoom:", error);
+      }
+    })();
+  }, [isRegistered]);
+
+  return isRegistered ? (
+    ChatRoom
+  ) : (
+    <Register addName={setName} setState={setRegistered}/>
+  );
 }
-
-export default App
