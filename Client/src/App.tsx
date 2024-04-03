@@ -10,7 +10,7 @@ export default function App() {
     (async function() {
       try {
         const Chat = await import('./Component/ChatRoom');
-        setChatRoom(<Chat.default />);
+        setChatRoom(<Chat.default user={name}/>);
       } catch (error) {
         console.error("Error loading ChatRoom:", error);
       }
