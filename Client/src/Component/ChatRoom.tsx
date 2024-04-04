@@ -5,10 +5,19 @@ export default function ChatRoom({ user }: { user: string }) {
   const [messages, setMessages] = useState<JSX.Element[]>([]);
   const [inputValue, setInputValue] = useState<string>('');
 
+
+
   function insertMessage() {
-    setMessages([...messages, <h1 className='message message-personal new'>{inputValue}</h1>]);
+    setMessages([...messages, (
+        <div>
+            <p>{user}</p>
+            <h1 className='message message-personal new'>{inputValue}</h1>
+        </div>
+    )]);
     setInputValue('');
   }
+
+  
 
   return (
     <div>
