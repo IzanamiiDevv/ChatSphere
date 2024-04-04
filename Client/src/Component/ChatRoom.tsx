@@ -12,6 +12,7 @@ export default function ChatRoom({ user }: { user: string }) {
         <div>
             <p>{user}</p>
             <h1 className='message message-personal new'>{inputValue}</h1>
+            <h1 className='message new'>{inputValue}</h1>
         </div>
     )]);
     setInputValue('');
