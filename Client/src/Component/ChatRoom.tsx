@@ -1,24 +1,33 @@
-import { useState, useEffect } from 'react';
+import { useState,useEffect } from 'react';
 import './ChatRoom.css';
 
 export default function ChatRoom({ user }: { user: string }) {
   const [messages, setMessages] = useState<JSX.Element[]>([]);
   const [inputValue, setInputValue] = useState<string>('');
 
-
+  useEffect(()=>{
+    setMessages([...messages, (
+      <div key={messages.length}>U9</div>
+    )])
+  },[])
 
   function insertMessage() {
     setMessages([...messages, (
-        <div>
-            <p>{user}</p>
-            <h1 className='message message-personal new'>{inputValue}</h1>
-            <h1 className='message new'>{inputValue}</h1>
+        <div key={messages.length}>
+          <div className='message message-personal new'>
+            <div className='name'>{user}</div>
+            <hr />
+            <p>{inputValue}</p>
+          </div>
+          <div className='message new'>
+            <div className='name'>{user}</div>
+            <hr />
+            <p>{inputValue}</p>
+          </div>
         </div>
     )]);
     setInputValue('');
   }
-
-  
 
   return (
     <div>
