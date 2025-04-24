@@ -1,5 +1,6 @@
 import { Fragment, useState, useEffect } from "react";
 import { io } from "socket.io-client";
+import dotenv from 'dotenv';
 
 interface ChatBoxProps {
     name: string
@@ -10,8 +11,8 @@ interface Chat {
     time: string,
     message: string
 }
-
-const socket = io("http://localhost:3400");
+dotenv.config();
+const socket = io(process.env.SERVER || "http://localhost:3400");
 
 const ChatBox = ({ name }: ChatBoxProps) => {
     const [ message, setMessage ] = useState("");
