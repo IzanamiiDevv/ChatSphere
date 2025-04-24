@@ -27,7 +27,7 @@ function App() {
 
 async function checkServer(setBackend: React.Dispatch<React.SetStateAction<boolean>>): Promise<void> {
   try {
-    const response: Response = await fetch("http://localhost:3400/");
+    const response: Response = await fetch("https://chatspherebackend.onrender.com/");
     const data = response.text();
     console.log(data);
     setBackend(true);
