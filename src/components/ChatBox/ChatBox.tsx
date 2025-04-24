@@ -11,7 +11,7 @@ interface Chat {
     message: string
 }
 
-const socket = io("http://localhost:3400");
+const socket = io("https://chatspherebackend.onrender.com");
 
 const ChatBox = ({ name }: ChatBoxProps) => {
     const [ message, setMessage ] = useState("");
